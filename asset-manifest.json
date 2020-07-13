@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/course-selector-app/static/css/main.5f361e03.chunk.css",
+    "main.js": "/course-selector-app/static/js/main.932f200a.chunk.js",
+    "main.js.map": "/course-selector-app/static/js/main.932f200a.chunk.js.map",
+    "runtime-main.js": "/course-selector-app/static/js/runtime-main.fa794f11.js",
+    "runtime-main.js.map": "/course-selector-app/static/js/runtime-main.fa794f11.js.map",
+    "static/js/2.3df831a4.chunk.js": "/course-selector-app/static/js/2.3df831a4.chunk.js",
+    "static/js/2.3df831a4.chunk.js.map": "/course-selector-app/static/js/2.3df831a4.chunk.js.map",
+    "index.html": "/course-selector-app/index.html",
+    "precache-manifest.440f738475fc341244b33115b45d67c3.js": "/course-selector-app/precache-manifest.440f738475fc341244b33115b45d67c3.js",
+    "service-worker.js": "/course-selector-app/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/course-selector-app/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.3df831a4.chunk.js.LICENSE.txt": "/course-selector-app/static/js/2.3df831a4.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fa794f11.js",
+    "static/js/2.3df831a4.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.932f200a.chunk.js"
+  ]
+}
