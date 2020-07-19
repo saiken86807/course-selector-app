@@ -1,21 +1,22 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import Course from './Course';
-import {CourseCatalog} from './CourseCatalog';
+import { CourseCatalog } from './CourseCatalog';
 
 const CourseList = () => {
-    const [courses, setCourses] = useContext(CourseCatalog);
-    return (
-        <div>
-            {courses.map((course) => (
-                <Course
-                    name={course.name}
-                    description={course.description}
-                    times={course.times}
-                    location={course.location}
-                />
-            ))}
-        </div>
-    );
+	const [ courses, setCourses ] = useContext(CourseCatalog);
+	return (
+		<div>
+			{courses.map((course) => (
+				<Course
+					key={course.id}
+					name={course.name}
+					description={course.description}
+					times={course.times}
+					location={course.location}
+				/>
+			))}
+		</div>
+	);
 };
 
 export default CourseList;
