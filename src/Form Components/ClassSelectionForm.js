@@ -5,16 +5,16 @@ import Confirm from './Confirm';
 import Success from './Success';
 
 export class ClassSelectionForm extends Component {
-	state = {
-		step: 1,
-		course1: '',
-		course2: '',
-		course3: '',
-		course4: '',
-		alternateCourse1: '',
-		alternateCourse2: '',
-		alternateCourse3: ''
-	};
+	constructor(props) {
+		super(props);
+		this.state = {
+			step: 1,
+			courses: [],
+			altcourses: []
+		};
+		this.onCoursesChange = this.onCoursesChange.bind(this);
+		// this.onAltcoursesChange = this.onAltcoursesChange.bind(this);
+	}
 	// Proceed to the next step
 	nextStep = () => {
 		// destructering
@@ -31,33 +31,54 @@ export class ClassSelectionForm extends Component {
 			step: step - 1
 		});
 	};
-	handleChange = (input) => (e) => {
-		this.setState({ [input]: e.target.value });
+	onCoursesChange = (event, values) => {
+		this.setState({
+			courses: values
+		});
 	};
+	// onCoursesChange = (event) => {
+	// 	const { name, values } = event.target;
+	// 	this.setState({
+	// 		[name]: values
+	// 	});
+	// };
+
+	onAltcoursesChange = (event, values) => {
+		this.setState({
+			altcourses: values
+		});
+	};
+
 	render() {
 		const { step } = this.state;
-		const { course1, course2, course3, course4, alternateCourse1, alternateCourse2, alternateCourse3 } = this.state;
-		const values = {
-			course1,
-			course2,
-			course3,
-			course4,
-			alternateCourse1,
-			alternateCourse2,
-			alternateCourse3
-		};
+		const { courses, altcourses } = this.state;
+		const values = { courses, altcourses };
+		//const { courses, altcourses} = this.state;
+		// const values = {
+		// 	courses,
+		// 	// altcourses,
+		// };
 		switch (step) {
 			case 1:
 				return (
-					<FirstChoiceSelection nextStep={this.nextStep} handleChange={this.handleChange} values={values} />
+					<FirstChoiceSelection
+						nextStep={this.nextStep}
+						handleChange={this.onCoursesChange}
+						courses={this.state.courses}
+					/>
 				);
 			case 2:
 				return (
+					// <AltChoiceSelection
+					// 	nextStep={this.nextStep}
+					// 	prevStep={this.prevStep}
+					// 	handleChange={this.handleChange}
+					// 	values={values}
+					// />
 					<AltChoiceSelection
 						nextStep={this.nextStep}
-						prevStep={this.prevStep}
-						handleChange={this.handleChange}
-						values={values}
+						handleChange={this.onAltcoursesChange}
+						altcourses={this.altcourses}
 					/>
 				);
 			case 3:
@@ -65,7 +86,11 @@ export class ClassSelectionForm extends Component {
 			case 4:
 				return <Success />;
 			default:
-				return <h1>Oops! Something went wrong ❗🤔</h1>;
+				return (
+					<h1>
+						Oops! Something went wrong <span>❗🤔</span>
+					</h1>
+				);
 		}
 	}
 }
