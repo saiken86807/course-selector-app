@@ -1,12 +1,32 @@
 import React, { Component } from 'react';
-import AppBar from '@material-ui/core/AppBar';
+
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+
+const options = [
+	'Animal Care Management: ANSC-1003',
+	'Animal Health Skills: ANSC-1010',
+	'Introduction to Animal Science: ANSC-1400',
+	'Small Animal Behavior: ANSC-2100',
+	'College Algebra: MATH-1200.01',
+	'College Algebra: MATH-1200.02',
+	'Chemistry: CHEM-1001',
+	'Introduction to Psychology: PSYC-1001.01',
+	'Introduction to Psychology: PSYC-1001.02'
+];
 
 export class AltChoiceSelection extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			altcourses: []
+		};
+		this.onAltcoursesChange = this.onAltcoursesChange.bind(this);
+		//this.handlesubmit = this.handleSubmit.bind(this);
+	}
+
 	continue = (e) => {
 		e.preventDefault();
 		this.props.nextStep();
@@ -14,66 +34,52 @@ export class AltChoiceSelection extends Component {
 	back = (e) => {
 		e.preventDefault();
 		this.props.prevStep();
-    };
-    
+	};
+
+	onAltcoursesChange = (event, values) => {
+		this.setState(
+			{
+				altcourses: values
+			},
+			() => {
+				// This will output an array of objects
+				// given by Autocompelte options property.
+				console.log(this.state.altcourses);
+			}
+		);
+	};
+
 	render() {
-		const { values, handleChange } = this.props;
 		return (
 			<MuiThemeProvider>
-				<>
-                {/* <AppBar title="Enter your selected courses">
-                    <Toolbar>
-                        <Typography variant="h6">
-                            Course Selection
-                        </Typography>
-                    </Toolbar>
-                </AppBar> */}
-					<TextField
-                        variant="outlined"
-						placeholder="Enter an alternate course"
-						label="Alternate Course 1"
-						onChange={handleChange('alternateCourse1')}
-                        defaultValue={values.alternateCourse1}
-                        margin="normal"
-                        fullWidth
+				<div style={{ width: 600 }}>
+					<Autocomplete
+						multiple
+						options={options}
+						onChange={this.onAltcoursesChange}
+						renderInput={(params) => (
+							<TextField
+								{...params}
+								variant="outlined"
+								label="Select your courses"
+								placeholder="Select 2"
+								fullWidth
+							/>
+						)}
 					/>
-					<br />
-					<TextField
-                        variant="outlined"
-						placeholder="Enter an alternate course"
-						label="Alternate Course 2"
-						onChange={handleChange('alternateCourse2')}
-                        defaultValue={values.alternateCourse2}
-                        margin="normal"
-                        fullWidth
-					/>
-					<br />
-					<TextField
-                        variant="outlined"
-						placeholder="Enter an alternate course"
-						label="Alternate Course 3"
-						onChange={handleChange('alternateCourse3')}
-                        defaultValue={values.alternateCourse3}
-                        margin="normal"
-                        fullWidth
-					/>
-					<br />
-					<Button
-                        color="secondary"
-                        variant="contained"
-                        onClick={this.back}
-                        >Back</Button>
+					<div>{`Course Selected: ${this.state.altcourses}`}</div>
 
-                    <Button
-                    color="primary"
-                    variant="contained"
-                    onClick={this.continue}
-                    >Continue</Button>
-                </>
+					<Button color="secondary" variant="contained" onClick={this.back}>
+						Back
+					</Button>
+
+					<Button color="primary" variant="contained" onClick={this.continue}>
+						Continue
+					</Button>
+				</div>
 			</MuiThemeProvider>
 		);
 	}
 }
-
 
 export default AltChoiceSelection;
