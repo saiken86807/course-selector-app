@@ -2,14 +2,10 @@ import React from 'react';
 import './App.css';
 import CourseList from './CatalogComponents/CourseList';
 import { CourseProvider } from './CatalogComponents/CourseCatalog';
-// import Dropdown from './CatalogComponents/DropdownMenu';
-import ClassSelectionForm from './Form Components/ClassSelectionForm';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import AppBar from '@material-ui/core/AppBar';
-//import AutoCompleteForm from './Form Components/AutoCompleteForm';
-import FirstChoiceSelection from './Form Components/FirstChoiceClassSelection';
-// import Autocomplete from '@material-ui/lab/Autocomplete';
+import CourseSelectionForm from './Form Components/CourseSelectionForm';
 
 function App() {
 	return (
@@ -21,9 +17,8 @@ function App() {
 			</AppBar>
 
 			<CourseProvider>
-				{/* <FirstChoiceSelection/> */}
-				<ClassSelectionForm />
-				<CourseList />
+				<CourseSelectionForm className="CourseSelection" />
+				<CourseList className="CourseList" />
 			</CourseProvider>
 		</div>
 	);
