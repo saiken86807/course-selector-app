@@ -3,81 +3,80 @@ import React, { Component } from 'react';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-
+import Autocomplete from '@material-ui/lab/Autocomplete';
 
 const options = [
-    { value: 'ANSC-1003', label: 'Animal Care Management' },
-	{ value: 'ANSC-1010', label: 'Animal Health Skills' },
-	{ value: 'ANSC-1400', label: 'Introduction to Animal Science' },
-	{ value: 'ANSC-2100', label: 'Small Animal Behavior' },
-	{ value: 'MATH-1200.01', label: 'College Algebra' },
-	{ value: 'MATH-1200.02', label: 'College Algebra' },
-	{ value: 'CHEM-1001', label: 'Chemistry' },
-	{ value: 'PSYC-1001.01', label: 'Introduction to Psychology ' },
-	{ value: 'PSYC-1001.02', label: 'Introduction to Psychology ' }
-]
+	'Animal Care Management: ANSC-1003',
+	'Animal Health Skills: ANSC-1010',
+	'Introduction to Animal Science: ANSC-1400',
+	'Small Animal Behavior: ANSC-2100',
+	'College Algebra: MATH-1200.01',
+	'College Algebra: MATH-1200.02',
+	'Chemistry: CHEM-1001',
+	'Introduction to Psychology: PSYC-1001.01',
+	'Introduction to Psychology: PSYC-1001.02'
+];
 
 export class FirstChoiceSelection extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			courses: []
+		};
+		this.onCoursesChange = this.onCoursesChange.bind(this);
+		//this.handlesubmit = this.handleSubmit.bind(this);
+	}
 	continue = (e) => {
 		e.preventDefault();
-		this.props.nextStep(); 
+		this.props.nextStep();
+	};
+
+	// handleSubmit(event) {
+	// 	alert('Your Course Selections have been submitted!');
+	// 	event.preventDefault();
+	// }
+
+	onCoursesChange = (event, values) => {
+		this.setState(
+			{
+				courses: values
+			},
+			() => {
+				// This will output an array of objects
+				// given by Autocompelte options property.
+				console.log(this.state.courses);
+			}
+		);
 	};
 	render() {
-		const { values, handleChange } = this.props;
 		return (
 			<MuiThemeProvider>
-				<>
-                    
-                    <TextField
-                        variant="outlined"
-						placeholder="Enter your Chosen course"
-						label="Course 1"
-						onChange={handleChange('course1')}
-                        defaultValue={values.course1}
-                        margin="normal"
-                        fullWidth
+				<div style={{ width: 600 }}>
+					<Autocomplete
+						name="courses"
+						multiple
+						options={options}
+						defaultValue={[]}
+						onChange={this.onCoursesChange}
+						renderInput={(params) => (
+							<TextField
+								{...params}
+								variant="outlined"
+								label="Select your courses"
+								placeholder="First choice:Select 4"
+								fullWidth
+								margin="normal"
+							/>
+						)}
 					/>
-					<br />
-					<TextField
-                        variant="outlined"
-						placeholder="Enter your Chosen course"
-						label="Course 2"
-						onChange={handleChange('course2')}
-                        defaultValue={values.course2}
-                        margin="normal"
-                        fullWidth
-					/>
-					<br />
-					<TextField
-                        variant="outlined"
-						placeholder="Enter your Chosen course"
-						label="Course 3"
-						onChange={handleChange('course3')}
-                        defaultValue={values.course3}
-                        margin="normal"
-                        fullWidth
-					/>
-					<br />
-					<TextField
-                        variant="outlined"
-						placeholder="Enter your Chosen course"
-						label="Course 4"
-						onChange={handleChange('course4')}
-                        defaultValue={values.course4}
-                        margin="normal"
-                        fullWidth
-					/>
-					<br />
-					<Button
-              color="primary"
-              variant="contained"
-              onClick={this.continue}
-            >Continue</Button>
-        </>
+					<Button color="primary" variant="contained" onClick={this.continue}>
+						Continue
+					</Button>
+
+					<ul>{`Course Selected: ${this.state.courses}`}</ul>
+				</div>
 			</MuiThemeProvider>
 		);
 	}
 }
-
-
 export default FirstChoiceSelection;
