@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 
 export class Success extends Component {
 	continue = (e) => {
@@ -15,6 +12,7 @@ export class Success extends Component {
 		e.preventDefault();
 		this.props.prevStep();
 	};
+
 	render() {
 		return (
 			<MuiThemeProvider>
