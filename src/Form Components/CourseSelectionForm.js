@@ -5,8 +5,8 @@ import Button from '@material-ui/core/Button';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
 const options = [
-	' Animal Care Management: ANSC-1003 \n',
-	' Animal Health Skills: ANSC-1010 \n',
+	' Animal Care Management: ANSC-1003',
+	' Animal Health Skills: ANSC-1010',
 	' Introduction to Animal Science: ANSC-1400',
 	' Small Animal Behavior: ANSC-2100',
 	' College Algebra: MATH-1200.01',
@@ -20,7 +20,7 @@ export class CourseSelectionForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			step: 1,
+			//			step: 1,
 			courses: [],
 			altcourses: []
 		};
@@ -35,32 +35,28 @@ export class CourseSelectionForm extends Component {
 	}
 
 	onCoursesChange = (event, values) => {
-		this.setState(
-			{
-				courses: values
-			},
-			() => {
-				console.log(this.state.courses);
-			}
-		);
+		this.setState({
+			courses: values
+		});
 	};
 	onAltcoursesChange = (event, values) => {
-		this.setState(
-			{
-				altcourses: values
-			},
-			() => {
-				console.log(this.state.altcourses);
-			}
-		);
+		this.setState({
+			altcourses: values
+		});
 	};
 	render() {
+		const firstOptions = options.filter((course) => !this.state.altcourses.includes(course));
+		const secondOptions = options.filter((course) => !this.state.courses.includes(course));
+		const coursesList = this.state.courses.map((item) => <li key={item}>{item}</li>);
+		const altcoursesList = this.state.altcourses.map((item) => <li key={item}>{item}</li>);
+
 		return (
 			<MuiThemeProvider>
 				<div style={{ width: 600 }}>
 					<Autocomplete
 						multiple
-						options={options}
+						maxSelectedItems={4}
+						options={firstOptions}
 						defaultValue={[]}
 						onChange={this.onCoursesChange}
 						renderInput={(params) => (
@@ -77,7 +73,7 @@ export class CourseSelectionForm extends Component {
 					<br />
 					<Autocomplete
 						multiple
-						options={options}
+						options={secondOptions}
 						onChange={this.onAltcoursesChange}
 						renderInput={(params) => (
 							<TextField
@@ -93,11 +89,11 @@ export class CourseSelectionForm extends Component {
 
 					<div>
 						<h3>Your First Choice Selection:</h3>
-						<ol>{this.state.courses.map((item) => <li key={item}>{item}</li>)}</ol>
+						<ol>{coursesList}</ol>
 					</div>
 					<div>
 						<h3>Your Second Choice Selection:</h3>
-						<ol>{this.state.altcourses.map((item) => <li key={item}>{item}</li>)}</ol>
+						<ol>{altcoursesList}</ol>
 					</div>
 				</div>
 				<Button color="primary" variant="contained" onClick={this.handleSubmit}>
