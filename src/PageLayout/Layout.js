@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -18,8 +18,8 @@ function TabPanel(props) {
 		<div
 			role="tabpanel"
 			hidden={value !== index}
-			id={`simple-tabpanel-${index}`}
-			aria-labelledby={`simple-tab-${index}`}
+			id={`wrapped-tabpanel-${index}`}
+			aria-labelledby={`wrapped-tab-${index}`}
 			{...other}
 		>
 			{value === index && (
@@ -39,8 +39,8 @@ TabPanel.propTypes = {
 
 function a11yProps(index) {
 	return {
-		id: `simple-tab-${index}`,
-		'aria-controls': `simple-tabpanel-${index}`
+		id: `wrapped-tab-${index}`,
+		'aria-controls': `wrapped-tabpanel-${index}`
 	};
 }
 
@@ -66,9 +66,9 @@ export default function SimpleTabs() {
 					<Typography variant="h4">My Student Portal: Course Selection </Typography>
 				</Toolbar>
 				<Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-					<Tab label="Course Descriptions" {...a11yProps(0)} />
-					<Tab label="Course Selection Form" {...a11yProps(1)} />
-					<Tab label="Credit Evaluation History" {...a11yProps(2)} />
+					<Tab label="Descriptions" wrapped {...a11yProps(0)} />
+					<Tab label="Course Selection Form" wrapped {...a11yProps(1)} />
+					<Tab label="Credit Summary" wrapped {...a11yProps(2)} />
 				</Tabs>
 			</AppBar>
 			<TabPanel value={value} index={0}>
