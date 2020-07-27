@@ -14,7 +14,7 @@ const StyledTableCell = withStyles((theme) => ({
 		color: theme.palette.common.white
 	},
 	body: {
-		fontSize: 14
+		fontSize: 16
 	}
 }))(TableCell);
 
@@ -43,7 +43,7 @@ const rows = [
 
 const useStyles = makeStyles({
 	table: {
-		minWidth: 700
+		minWidth: 400
 	}
 });
 
@@ -60,9 +60,9 @@ export default function CreditEvaluation() {
 			<Table className={classes.table} aria-label="credit evaluation table">
 				<TableHead>
 					<TableRow>
-						<StyledTableCell align="center">Course Number</StyledTableCell>
-						<StyledTableCell align="center">Course Name</StyledTableCell>
-						<StyledTableCell align="center">Semester</StyledTableCell>
+						<StyledTableCell align="left">Course Number</StyledTableCell>
+						<StyledTableCell align="left">Course Name</StyledTableCell>
+						<StyledTableCell align="left">Semester</StyledTableCell>
 						<StyledTableCell align="center">Credits Earned</StyledTableCell>
 						<StyledTableCell align="center">Grade</StyledTableCell>
 					</TableRow>
