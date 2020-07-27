@@ -15,9 +15,9 @@ export class LeftPaneTab extends Component {
 				<h3>
 					<b>
 						<i>
-							You will be required to also chose to alternate classes in the event that your preferred
-							choice class has a waitlist at the time your submission is receieved and reviewed by your
-							Academic Advisor.
+							You will also be required to choose two alternate classes in the event that your preferred
+							choice has a waitlist at the time your submission is received and reviewed by your Academic
+							Advisor.
 						</i>
 					</b>
 				</h3>
