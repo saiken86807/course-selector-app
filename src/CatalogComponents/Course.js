@@ -1,15 +1,19 @@
 import React from 'react';
-import SelectedButton from './buttons';
+//import SelectedButton from './buttons';
+import { Grid } from '@material-ui/core';
 
-const Course = ({ name, description, times, location }) => {
+const Course = ({ name, description, times, location, limit }) => {
 	return (
-		<div className="courses">
-			<h2>{name}</h2>
-			<p>{description}</p>
-			<h3>{times}</h3>
-			<h3>{location}</h3>
-			<SelectedButton />
-		</div>
+		<Grid container direction="row" justify="center" alignItems="center">
+			<div className="courses">
+				<h2>{name}</h2>
+				<p>{description}</p>
+				<h3>
+					Location: {location}
+					<br />Times: {times} <br /> Seats: {limit}
+				</h3>
+			</div>
+		</Grid>
 	);
 };
 
