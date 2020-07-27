@@ -13,6 +13,7 @@ const CourseList = () => {
 					description={course.description}
 					times={course.times}
 					location={course.location}
+					limit={course.limit}
 				/>
 			))}
 		</div>
