@@ -7,7 +7,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Toolbar from '@material-ui/core/Toolbar';
-import RightPane from './RightPane';
+import CourseSelectForm from './CourseSelectForm';
 import CourseTabIndex from './CourseTabIndex';
 import CreditEvaluation from './CreditEvaluation';
 
@@ -75,7 +75,7 @@ export default function SimpleTabs() {
 				<CourseTabIndex />
 			</TabPanel>
 			<TabPanel value={value} index={1}>
-				<RightPane />
+				<CourseSelectForm />
 			</TabPanel>
 			<TabPanel value={value} index={2}>
 				<CreditEvaluation />
