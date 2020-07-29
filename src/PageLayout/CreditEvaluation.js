@@ -41,11 +41,11 @@ const rows = [
 	createData('ANSC-1005 ', 'Animal Facilities Design & Mgt', 'Spring 2020', 3, 'A')
 ];
 
-const useStyles = makeStyles({
-	table: {
-		minWidth: 400
-	}
-});
+// const useStyles = makeStyles({
+// 	table: {
+// 		minWidth: 400
+// 	}
+// });
 
 function totalCredits(items) {
 	return items.map(({ creditsEarned }) => creditsEarned).reduce((sum, i) => sum + i, 0);
@@ -53,11 +53,11 @@ function totalCredits(items) {
 const totalCreditsEarned = totalCredits(rows);
 
 export default function CreditEvaluation() {
-	const classes = useStyles();
+	//const classes = useStyles();
 
 	return (
 		<TableContainer component={Paper}>
-			<Table className={classes.table} aria-label="credit evaluation table">
+			<Table className="CreditHistoryTable" aria-label="credit evaluation table">
 				<TableHead>
 					<TableRow>
 						<StyledTableCell align="left">Course Number</StyledTableCell>
@@ -81,7 +81,7 @@ export default function CreditEvaluation() {
 					))}
 					<TableRow>
 						<TableCell rowSpan={3} />
-						<TableCell colSpan={2}>
+						<TableCell  colSpan={2}>
 							<b>Total Credits Earned</b>
 						</TableCell>
 						<TableCell align="center">

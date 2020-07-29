@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -44,15 +43,7 @@ function a11yProps(index) {
 	};
 }
 
-const useStyles = makeStyles((theme) => ({
-	root: {
-		flexGrow: 1,
-		backgroundColor: theme.palette.background.paper
-	}
-}));
-
 export default function SimpleTabs() {
-	const classes = useStyles();
 	const [ value, setValue ] = React.useState(0);
 
 	const handleChange = (event, newValue) => {
@@ -60,15 +51,15 @@ export default function SimpleTabs() {
 	};
 
 	return (
-		<div className={classes.root}>
-			<AppBar position="static">
+		<div className="TabsRoot">
+			<AppBar className="TabsAppBar" position="static">
 				<Toolbar>
 					<Typography variant="h4">My Student Portal: Course Selection </Typography>
 				</Toolbar>
 				<Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-					<Tab className="DescriptionsTab" label="Descriptions" wrapped {...a11yProps(0)} />
-					<Tab className="SelectionFormTab" label="Course Selection Form" wrapped {...a11yProps(1)} />
-					<Tab className="CreditTab" label="Credit Summary" wrapped {...a11yProps(2)} />
+					<Tab className="TabsBar" label="Descriptions" wrapped {...a11yProps(0)} />
+					<Tab className="TabsBar" label="Course Selection Form" wrapped {...a11yProps(1)} />
+					<Tab className="TabsBar" label="Credit Summary" wrapped {...a11yProps(2)} />
 				</Tabs>
 			</AppBar>
 			<TabPanel className="TabsLayoutPanel" value={value} index={0}>

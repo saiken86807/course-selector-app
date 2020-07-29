@@ -21,7 +21,6 @@ export class CourseSelectionForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			//			step: 1,
 			courses: [],
 			altcourses: []
 		};
@@ -52,10 +51,9 @@ export class CourseSelectionForm extends Component {
 		const altcoursesList = this.state.altcourses.map((item) => <li key={item}>{item}</li>);
 
 		return (
-			<Grid container direction="row" justify="center" alignItems="center">
+			<Grid container direction="row" justify="center" alignItems="center" >
 				<MuiThemeProvider>
 					<div className="dropdown">
-						{/* <div className="dropdown" style={{ width: 400 }}> */}
 						<Grid item>
 							<h3>Select your preferred courses below:</h3>
 							<Autocomplete className="CoursesDropdown"
@@ -95,7 +93,7 @@ export class CourseSelectionForm extends Component {
 					</div>
 					<br />
 					<div className="ListedCourses">
-						<Grid item container direction="column" justify="flex-end" alignItems="center">
+						<Grid item container direction="column" justify="center" alignItems="center">
 							<div>
 								<h2>Your First Choice Selection:</h2>
 								<ol>{coursesList}</ol>
