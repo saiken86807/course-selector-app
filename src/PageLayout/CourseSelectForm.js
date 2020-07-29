@@ -68,8 +68,8 @@ export class CourseSelectionForm extends Component {
 									<TextField
 										{...params}
 										variant="outlined"
-										label="Select your courses"
-										placeholder="First choice:Select 4"
+										label="Select your first choice courses"
+										placeholder="Select 4"
 										fullWidth
 										
 									/>
@@ -85,7 +85,7 @@ export class CourseSelectionForm extends Component {
 									<TextField
 										{...params}
 										variant="outlined"
-										label="Select your courses"
+										label="Select alternate courses"
 										placeholder="Select 2"
 										fullWidth
 									/>
