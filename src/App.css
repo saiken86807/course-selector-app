@@ -69,6 +69,7 @@ h3, h4 {
 
 .TabsRoot {
 	flex-grow: 1;
+	width: 100%;
 }
 .CreditHistoryTable {
 	min-width: 400px;

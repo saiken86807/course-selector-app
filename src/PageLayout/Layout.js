@@ -56,7 +56,7 @@ export default function SimpleTabs() {
 				<Toolbar>
 					<Typography variant="h4">My Student Portal: Course Selection </Typography>
 				</Toolbar>
-				<Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
+				<Tabs value={value} onChange={handleChange} variant="scrollable" scrollButtons="auto" aria-label="Course Selection">
 					<Tab className="TabsBar" label="Descriptions" wrapped {...a11yProps(0)} />
 					<Tab className="TabsBar" label="Course Selection Form" wrapped {...a11yProps(1)} />
 					<Tab className="TabsBar" label="Credit Summary" wrapped {...a11yProps(2)} />
