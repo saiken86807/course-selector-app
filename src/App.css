@@ -1,6 +1,7 @@
 .App {
 	text-align: center;
 	min-height: 100vh;
+	background-color: lightgray;
 }
 /* .courses {
 	height: 450px;
@@ -50,4 +51,12 @@
 .ListedCourses {
 	padding-left: 20px;
 	margin-left: 20px;
+}
+
+.TabsLayoutPanel {
+	background-color: lightgray;
+}
+
+.altcoursesDropdown, .CoursesDropdown {
+	background-color: white;
 }

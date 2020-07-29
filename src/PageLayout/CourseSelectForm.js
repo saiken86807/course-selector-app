@@ -58,7 +58,7 @@ export class CourseSelectionForm extends Component {
 						{/* <div className="dropdown" style={{ width: 400 }}> */}
 						<Grid item>
 							<h3>Select your preferred courses below:</h3>
-							<Autocomplete
+							<Autocomplete className="CoursesDropdown"
 								multiple
 								maxSelectedItems={4}
 								options={firstOptions}
@@ -71,13 +71,13 @@ export class CourseSelectionForm extends Component {
 										label="Select your courses"
 										placeholder="First choice:Select 4"
 										fullWidth
-										margin="normal"
+										
 									/>
 								)}
 							/>
 							<br />
 							<h3>In the event your preferred course is full, select 2 alternate courses:</h3>
-							<Autocomplete
+							<Autocomplete className="altcoursesDropdown" 
 								multiple
 								options={secondOptions}
 								onChange={this.onAltcoursesChange}

@@ -51,11 +51,11 @@ export class CourseSelectionForm extends Component {
 		const altcoursesList = this.state.altcourses.map((item) => <li key={item}>{item}</li>);
 
 		return (
+			<form onSubmit={this.handleSubmit} action="https://formspree.io/xlewykzl" method="POST">
 			<MuiThemeProvider>
 				<div style={{ width: 600 }}>
 					<Autocomplete
 						multiple
-						maxSelectedItems={4}
 						options={firstOptions}
 						defaultValue={[]}
 						onChange={this.onCoursesChange}
@@ -96,10 +96,11 @@ export class CourseSelectionForm extends Component {
 						<ol>{altcoursesList}</ol>
 					</div>
 				</div>
-				<Button color="primary" variant="contained" onClick={this.handleSubmit}>
+				<Button color="primary" variant="contained" type="submit">
 					Submit!
 				</Button>
 			</MuiThemeProvider>
+			</form>
 		);
 	}
 }

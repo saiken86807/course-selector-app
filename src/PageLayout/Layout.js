@@ -10,6 +10,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import CourseSelectForm from './CourseSelectForm';
 import CourseTabIndex from './CourseTabIndex';
 import CreditEvaluation from './CreditEvaluation';
+import { blue } from '@material-ui/core/colors';
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -47,7 +48,8 @@ function a11yProps(index) {
 const useStyles = makeStyles((theme) => ({
 	root: {
 		flexGrow: 1,
-		backgroundColor: theme.palette.background.paper
+		backgroundColor: theme.palette.background.paper,
+		backgroundColor: blue
 	}
 }));
 
@@ -66,18 +68,19 @@ export default function SimpleTabs() {
 					<Typography variant="h4">My Student Portal: Course Selection </Typography>
 				</Toolbar>
 				<Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-					<Tab label="Descriptions" wrapped {...a11yProps(0)} />
-					<Tab label="Course Selection Form" wrapped {...a11yProps(1)} />
-					<Tab label="Credit Summary" wrapped {...a11yProps(2)} />
+					<Tab className="DescriptionsTab" label="Descriptions" wrapped {...a11yProps(0)} />
+					<Tab className="SelectionFormTab" label="Course Selection Form" wrapped {...a11yProps(1)} />
+					<Tab className="CreditTab" label="Credit Summary" wrapped {...a11yProps(2)} />
 				</Tabs>
 			</AppBar>
-			<TabPanel value={value} index={0}>
+			<TabPanel className="TabsLayoutPanel" value={value} index={0}>
 				<CourseTabIndex />
 			</TabPanel>
-			<TabPanel value={value} index={1}>
+			<TabPanel className="TabsLayoutPanel" 
+			value={value} index={1}>
 				<CourseSelectForm />
 			</TabPanel>
-			<TabPanel value={value} index={2}>
+			<TabPanel className="TabsLayoutPanel" value={value} index={2}>
 				<CreditEvaluation />
 			</TabPanel>
 		</div>

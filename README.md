@@ -6,6 +6,7 @@ This app was created using create-react-app, React.js, and Material-UI. with thi
 
 ## Future Improvements:
 1. Send selected values to back-end server
+2. Adding a max value for selected with Material-UI
 
 
 ## User Stories
