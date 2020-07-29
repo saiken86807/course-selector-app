@@ -7,7 +7,7 @@ const Course = ({ name, description, times, location, limit }) => {
 		<Grid container direction="row" justify="center" alignItems="center">
 			<div className="courses">
 				<h2>{name}</h2>
-				<p>{description}</p>
+				<h4>{description}</h4>
 				<h3>
 					Location: {location}
 					<br />Times: {times} <br /> Seats: {limit}
