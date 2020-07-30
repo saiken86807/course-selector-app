@@ -4,7 +4,7 @@ import { Grid } from '@material-ui/core/';
 export class LeftPaneTab extends Component {
 	render() {
 		return (
-			<Grid container>
+			<Grid container className="LeftPaneTabGrid">
 				<h1>Welcome to your Course Selection Portal!</h1>
 
 				<h2>

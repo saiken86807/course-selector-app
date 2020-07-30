@@ -4,10 +4,12 @@ import CourseList from '../CatalogComponents/CourseList';
 export class LeftPane extends Component {
 	render() {
 		return (
-			<CourseProvider>
-				<h2> Available Courses:</h2>
-				<CourseList className="CourseList" />
-			</CourseProvider>
+			<div className="CourseList">
+				<CourseProvider>
+					<h2> Available Courses:</h2>
+					<CourseList />
+				</CourseProvider>
+			</div>
 		);
 	}
 }
