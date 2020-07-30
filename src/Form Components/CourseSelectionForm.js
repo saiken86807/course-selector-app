@@ -19,42 +19,40 @@ const options = [
 export class CourseSelectionForm extends Component {
 	constructor(props) {
 		super(props);
+		this.submitForm = this.submitForm.bind(this);
 		this.state = {
-			//			step: 1,
+			status: '',
 			courses: [],
 			altcourses: []
 		};
 		this.onCoursesChange = this.onCoursesChange.bind(this);
 		this.onAltcoursesChange = this.onAltcoursesChange.bind(this);
-		this.handlesubmit = this.handleSubmit.bind(this);
-	}
-
-	handleSubmit(event) {
-		alert('Your Course Selections have been submitted!');
-		event.preventDefault();
 	}
 
 	onCoursesChange = (event, values) => {
 		this.setState({
 			courses: values
 		});
+		console.log(values);
 	};
 	onAltcoursesChange = (event, values) => {
 		this.setState({
 			altcourses: values
 		});
+		console.log(values);
 	};
 	render() {
+		const { status } = this.state;
 		const firstOptions = options.filter((course) => !this.state.altcourses.includes(course));
 		const secondOptions = options.filter((course) => !this.state.courses.includes(course));
 		const coursesList = this.state.courses.map((item) => <li key={item}>{item}</li>);
 		const altcoursesList = this.state.altcourses.map((item) => <li key={item}>{item}</li>);
 
 		return (
-			<form onSubmit={this.handleSubmit} action="https://formspree.io/xlewykzl" method="POST">
 			<MuiThemeProvider>
 				<div style={{ width: 600 }}>
 					<Autocomplete
+						name="autocourses"
 						multiple
 						options={firstOptions}
 						defaultValue={[]}
@@ -62,6 +60,7 @@ export class CourseSelectionForm extends Component {
 						renderInput={(params) => (
 							<TextField
 								{...params}
+								name="coursestext"
 								variant="outlined"
 								label="Select your courses"
 								placeholder="First choice:Select 4"
@@ -72,12 +71,14 @@ export class CourseSelectionForm extends Component {
 					/>
 					<br />
 					<Autocomplete
+						name="autoaltcourses"
 						multiple
 						options={secondOptions}
 						onChange={this.onAltcoursesChange}
 						renderInput={(params) => (
 							<TextField
 								{...params}
+								name="altcoursestext"
 								variant="outlined"
 								label="Select your courses"
 								placeholder="Select 2"
@@ -85,23 +86,62 @@ export class CourseSelectionForm extends Component {
 							/>
 						)}
 					/>
-					<br />
-
-					<div>
+					<form onSubmit={this.submitForm} action="https://formspree.io/mlepzrlb" method="POST">
+						<br />
+						{/* <div name="coursesContainer" values={this.courses}>
 						<h3>Your First Choice Selection:</h3>
-						<ol>{coursesList}</ol>
-					</div>
-					<div>
-						<h3>Your Second Choice Selection:</h3>
-						<ol>{altcoursesList}</ol>
-					</div>
+						<ol name="coursesList">
+						{console.log({coursesList})}</ol>
+					</div> */}
+						<div name="coursesContainer" values={console.log(coursesList)}>
+							<h3>Your First Choice Selection:</h3>
+							<ol name="coursesList">{coursesList}</ol>
+						</div>
+						<div name="coursesContainer">
+							<input type="li" value={coursesList} />
+						</div>
+						<div name="altcoursesContainer" values={console.log({ altcoursesList })}>
+							<h3>Your Second Choice Selection:</h3>
+							<ol name="altcoursesList">{altcoursesList}</ol>
+						</div>
+						<div name="altcoursesContainer">
+							<input type="li" value={altcoursesList} />
+						</div>
+						{/* <div name="courses" values={this.onCoursesChange}>
+					<input name="coursesList" values={coursesList} /></div>
+					<div name="altcourses" values={this.onAltcoursesChange}>
+					<input name="altcourses" values={this.altcourses} />
+					</div> */}
+						{status === 'SUCCESS' ? (
+							<p>Thanks!</p>
+						) : (
+							<Button color="primary" variant="contained" type="submit">
+								Submit!
+							</Button>
+						)}
+						{status === 'ERROR' && <p>Ooops! There was an error.</p>}
+					</form>
 				</div>
-				<Button color="primary" variant="contained" type="submit">
-					Submit!
-				</Button>
 			</MuiThemeProvider>
-			</form>
 		);
+	}
+	submitForm(ev) {
+		ev.preventDefault();
+		const form = ev.target;
+		const data = new FormData(form);
+		const xhr = new XMLHttpRequest();
+		xhr.open(form.method, form.action);
+		xhr.setRequestHeader('Accept', 'application/json');
+		xhr.onreadystatechange = () => {
+			if (xhr.readyState !== XMLHttpRequest.DONE) return;
+			if (xhr.status === 200) {
+				form.reset();
+				this.setState({ status: 'SUCCESS' });
+			} else {
+				this.setState({ status: 'ERROR' });
+			}
+		};
+		xhr.send(data);
 	}
 }
 export default CourseSelectionForm;
