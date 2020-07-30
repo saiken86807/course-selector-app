@@ -2,11 +2,11 @@
 
 [Course Selector App: ](https://saiken86807.github.io/course-selector-app/)
 
-This app was created using create-react-app, React.js, and Material-UI. with this app, college students can select their courses for the following semester, and view their course credit history.
+This app was created using create-react-app, React.js, and Material-UI. With this app, college students can select their courses for the following semester, and view their course credit history.
 
 ## Future Improvements:
 1. Send selected values to back-end server
-2. Adding a max value for selected with Material-UI
+2. Adding a max selected limit for ComboBox/Autocomplete with Material-UI
 
 
 ## User Stories
