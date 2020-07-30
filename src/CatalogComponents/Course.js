@@ -1,5 +1,4 @@
 import React from 'react';
-//import SelectedButton from './buttons';
 import { Grid } from '@material-ui/core';
 
 const Course = ({ name, description, times, location, limit }) => {

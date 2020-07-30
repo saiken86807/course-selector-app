@@ -3,7 +3,7 @@ import Course from './Course';
 import { CourseCatalog } from './CourseCatalog';
 
 const CourseList = () => {
-	const [ courses, setCourses ] = useContext(CourseCatalog);
+	const [ courses ] = useContext(CourseCatalog);
 	return (
 		<div>
 			{courses.map((course) => (

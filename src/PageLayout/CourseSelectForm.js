@@ -51,12 +51,13 @@ export class CourseSelectionForm extends Component {
 		const altcoursesList = this.state.altcourses.map((item) => <li key={item}>{item}</li>);
 
 		return (
-			<Grid container direction="row" justify="center" alignItems="center" >
+			<Grid container direction="row" justify="center" alignItems="center">
 				<MuiThemeProvider>
 					<div className="dropdown">
 						<Grid item>
 							<h3>Select your preferred courses below:</h3>
-							<Autocomplete className="CoursesDropdown"
+							<Autocomplete
+								className="CoursesDropdown"
 								multiple
 								maxSelectedItems={4}
 								options={firstOptions}
@@ -69,13 +70,13 @@ export class CourseSelectionForm extends Component {
 										label="Select your first choice courses"
 										placeholder="Select 4"
 										fullWidth
-										
 									/>
 								)}
 							/>
 							<br />
 							<h3>In the event your preferred course is full, select 2 alternate courses:</h3>
-							<Autocomplete className="altcoursesDropdown" 
+							<Autocomplete
+								className="altcoursesDropdown"
 								multiple
 								options={secondOptions}
 								onChange={this.onAltcoursesChange}

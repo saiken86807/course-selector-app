@@ -1,11 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import Toolbar from '@material-ui/core/Toolbar';
+import { AppBar, Tabs, Tab, Typography, Box, Toolbar } from '@material-ui/core';
 import CourseSelectForm from './CourseSelectForm';
 import CourseTabIndex from './CourseTabIndex';
 import CreditEvaluation from './CreditEvaluation';
@@ -56,7 +51,13 @@ export default function SimpleTabs() {
 				<Toolbar>
 					<Typography variant="h4">My Student Portal: Course Selection </Typography>
 				</Toolbar>
-				<Tabs value={value} onChange={handleChange} variant="scrollable" scrollButtons="auto" aria-label="Course Selection">
+				<Tabs
+					value={value}
+					onChange={handleChange}
+					variant="scrollable"
+					scrollButtons="auto"
+					aria-label="Course Selection"
+				>
 					<Tab className="TabsBar" label="Descriptions" wrapped {...a11yProps(0)} />
 					<Tab className="TabsBar" label="Course Selection Form" wrapped {...a11yProps(1)} />
 					<Tab className="TabsBar" label="Credit Summary" wrapped {...a11yProps(2)} />
@@ -65,8 +66,7 @@ export default function SimpleTabs() {
 			<TabPanel className="TabsLayoutPanel" value={value} index={0}>
 				<CourseTabIndex />
 			</TabPanel>
-			<TabPanel className="TabsLayoutPanel" 
-			value={value} index={1}>
+			<TabPanel className="TabsLayoutPanel" value={value} index={1}>
 				<CourseSelectForm />
 			</TabPanel>
 			<TabPanel className="TabsLayoutPanel" value={value} index={2}>
