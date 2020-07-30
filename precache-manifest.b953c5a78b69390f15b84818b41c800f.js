@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ea53002da7c611521c8ee6cad26c6335",
+    "revision": "8e4c5e886d1d750ef711ad14a966f369",
     "url": "/course-selector-app/index.html"
   },
   {
-    "revision": "598e003eeddc12fa2ef6",
-    "url": "/course-selector-app/static/css/main.81fc372d.chunk.css"
+    "revision": "1f92f06c6e5dfca44b43",
+    "url": "/course-selector-app/static/css/main.dbaf87c8.chunk.css"
   },
   {
     "revision": "75f78d782aa4ff865135",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/course-selector-app/static/js/2.29fde9d6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "598e003eeddc12fa2ef6",
-    "url": "/course-selector-app/static/js/main.f9edd575.chunk.js"
+    "revision": "1f92f06c6e5dfca44b43",
+    "url": "/course-selector-app/static/js/main.5639c899.chunk.js"
   },
   {
     "revision": "c9c61a24b65ac0293a59",
