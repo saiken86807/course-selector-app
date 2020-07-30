@@ -57,7 +57,7 @@ export default function CreditEvaluation() {
 
 	return (
 		<TableContainer component={Paper}>
-			<Table className="CreditHistoryTable" aria-label="credit evaluation table">
+			<Table className="CreditHistoryTable" size="size" aria-label="credit evaluation table">
 				<TableHead>
 					<TableRow>
 						<StyledTableCell align="left">Course Number</StyledTableCell>
