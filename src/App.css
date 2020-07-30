@@ -25,7 +25,9 @@
 	display: flex;
 }
 
-.PaperRight {
+.PaperRight,
+.LeftPaneTabGrid,
+.CourseList {
 	margin-top: 20px;
 	padding: 20px;
 	margin-bottom: 10px;
@@ -34,7 +36,7 @@
 .dropdown {
 	width: 400px;
 	padding: 20px;
-	margin:20px;
+	margin: 20px;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -44,7 +46,6 @@
 .ListedCourses {
 	padding-left: 20px;
 	margin-left: 20px;
-	
 }
 .TabsAppBar.TabsAppBar {
 	background-color: #aeadf0;
@@ -59,11 +60,13 @@
 	background-color: #f8f7ff;
 }
 
-.altcoursesDropdown, .CoursesDropdown {
+.altcoursesDropdown,
+.CoursesDropdown {
 	background-color: white;
 }
 
-h3, h4 {
+h3,
+h4 {
 	margin-top: 0;
 }
 
@@ -75,7 +78,6 @@ h3, h4 {
 	min-width: 400px;
 	width: fit-content;
 }
-
 
 @media screen and (min-width: 960px) {
 	.courses {
@@ -92,5 +94,3 @@ h3, h4 {
 		background: white;
 	}
 }
-
-
