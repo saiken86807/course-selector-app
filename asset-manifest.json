@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/course-selector-app/static/css/main.dbaf87c8.chunk.css",
-    "main.js": "/course-selector-app/static/js/main.5639c899.chunk.js",
-    "main.js.map": "/course-selector-app/static/js/main.5639c899.chunk.js.map",
+    "main.js": "/course-selector-app/static/js/main.e04949bb.chunk.js",
+    "main.js.map": "/course-selector-app/static/js/main.e04949bb.chunk.js.map",
     "runtime-main.js": "/course-selector-app/static/js/runtime-main.fa794f11.js",
     "runtime-main.js.map": "/course-selector-app/static/js/runtime-main.fa794f11.js.map",
-    "static/js/2.29fde9d6.chunk.js": "/course-selector-app/static/js/2.29fde9d6.chunk.js",
-    "static/js/2.29fde9d6.chunk.js.map": "/course-selector-app/static/js/2.29fde9d6.chunk.js.map",
+    "static/js/2.60193a91.chunk.js": "/course-selector-app/static/js/2.60193a91.chunk.js",
+    "static/js/2.60193a91.chunk.js.map": "/course-selector-app/static/js/2.60193a91.chunk.js.map",
     "index.html": "/course-selector-app/index.html",
-    "precache-manifest.b953c5a78b69390f15b84818b41c800f.js": "/course-selector-app/precache-manifest.b953c5a78b69390f15b84818b41c800f.js",
+    "precache-manifest.673f7796ba195ae818c3e195c4c05ed3.js": "/course-selector-app/precache-manifest.673f7796ba195ae818c3e195c4c05ed3.js",
     "service-worker.js": "/course-selector-app/service-worker.js",
     "static/css/main.dbaf87c8.chunk.css.map": "/course-selector-app/static/css/main.dbaf87c8.chunk.css.map",
-    "static/js/2.29fde9d6.chunk.js.LICENSE.txt": "/course-selector-app/static/js/2.29fde9d6.chunk.js.LICENSE.txt"
+    "static/js/2.60193a91.chunk.js.LICENSE.txt": "/course-selector-app/static/js/2.60193a91.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.fa794f11.js",
-    "static/js/2.29fde9d6.chunk.js",
+    "static/js/2.60193a91.chunk.js",
     "static/css/main.dbaf87c8.chunk.css",
-    "static/js/main.5639c899.chunk.js"
+    "static/js/main.e04949bb.chunk.js"
   ]
 }
