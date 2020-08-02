@@ -1,117 +1,91 @@
 import React, { Component } from 'react';
-import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-
-const options = [
-	' Animal Care Management: ANSC-1003',
-	' Animal Health Skills: ANSC-1010',
-	' Introduction to Animal Science: ANSC-1400',
-	' Small Animal Behavior: ANSC-2100',
-	' College Algebra: MATH-1200.01',
-	' College Algebra: MATH-1200.02',
-	' Chemistry: CHEM-1001',
-	' Introduction to Psychology: PSYC-1001.01',
-	' Introduction to Psychology: PSYC-1001.02'
-];
+import { Grid } from '@material-ui/core';
 
 export class SelectionForm extends Component {
 	constructor(props) {
 		super(props);
-		this.submitForm = this.submitForm.bind(this);
 		this.state = {
-			status: '',
-			courses: [],
-			altcourses: []
+			status: ''
 		};
-		this.onCoursesChange = this.onCoursesChange.bind(this);
-		this.onAltcoursesChange = this.onAltcoursesChange.bind(this);
+		this.submitForm = this.submitForm.bind(this);
+		this.handleChange = this.handleChange.bind(this);
 	}
-	onCoursesChange = (event, values) => {
-		this.setState({
-			courses: values
-		});
-		console.log(values);
-	};
-	onAltcoursesChange = (event, values) => {
-		this.setState({
-			altcourses: values
-		});
-		console.log(values);
-	};
-
+	handleChange(event) {
+		this.setState({ [event.target.name]: event.target.value });
+	}
 	render() {
 		const { status } = this.state;
-		const firstOptions = options.filter((course) => !this.state.altcourses.includes(course));
-		const secondOptions = options.filter((course) => !this.state.courses.includes(course));
-		const coursesList = this.state.courses.map((item) => <li key={item}>{item}</li>);
-		const altcoursesList = this.state.altcourses.map((item) => <li key={item}>{item}</li>);
-
+		const courses = [
+			' Animal Care Management: ANSC-1003',
+			' Animal Health Skills: ANSC-1010',
+			' Introduction to Animal Science: ANSC-1400',
+			' Small Animal Behavior: ANSC-2100',
+			' College Algebra: MATH-1200.01',
+			' College Algebra: MATH-1200.02',
+			' Chemistry: CHEM-1001',
+			' Introduction to Psychology: PSYC-1001.01',
+			' Introduction to Psychology: PSYC-1001.02'
+		];
+		const options = courses.map((item) => <option value={item}>{item}</option>);
+		// const selected = [...selected.options].filter(item => item.selected).map(item=> <option value={!selected}>{!selected}</option>;
 		return (
-			<MuiThemeProvider>
-				<div style={{ width: 600 }}>
-					<Autocomplete
-						name="autocourses"
-						multiple
-						options={firstOptions}
-						defaultValue={[]}
-						onChange={this.onCoursesChange}
-						renderInput={(params) => (
-							<TextField
-								{...params}
-								name="coursestext"
-								variant="outlined"
-								label="Select your courses"
-								placeholder="First choice:Select 4"
-								fullWidth
-								margin="normal"
-							/>
-						)}
-					/>
-					<br />
-					<Autocomplete
-						name="autoaltcourses"
-						multiple
-						options={secondOptions}
-						onChange={this.onAltcoursesChange}
-						renderInput={(params) => (
-							<TextField
-								{...params}
-								name="altcoursestext"
-								variant="outlined"
-								label="Select your courses"
-								placeholder="Select 2"
-								fullWidth
-							/>
-						)}
-					/>
+			<Grid container direction="row" justify="center" alignItems="center">
+				<div className="dropdown">
 					<form onSubmit={this.submitForm} action="https://formspree.io/mlepzrlb" method="POST">
-						<div name="coursesContainer" values={console.log(coursesList)}>
-							<h3>Your First Choice Selection:</h3>
-							<ol name="coursesList">{coursesList}</ol>
-						</div>
-						<div name="coursesContainer">
-							<input type="li" value={coursesList} />
-						</div>
-						<div name="altcoursesContainer" values={console.log({ altcoursesList })}>
-							<h3>Your Second Choice Selection:</h3>
-							<ol name="altcoursesList">{altcoursesList}</ol>
-						</div>
-						<div name="altcoursesContainer">
-							<input type="li" value={altcoursesList} />
-						</div>
-						{status === 'SUCCESS' ? (
-							<p>Thanks!</p>
-						) : (
-							<Button color="primary" variant="contained" type="submit">
-								Submit!
-							</Button>
-						)}
-						{status === 'ERROR' && <p>Ooops! There was an error.</p>}
+						<h1>Select your courses and Submit</h1>
+						<Grid item>
+							<select
+								placebolder="select a course"
+								name="course1"
+								value={this.state.course1}
+								onChange={this.handleChange}
+							>
+								{options}
+							</select>
+							<br />
+							<select name="course2" value={this.state.course2} onChange={this.handleChange}>
+								{options}
+							</select>
+							<br />
+							<select name="course3" value={this.state.course3} onChange={this.handleChange}>
+								{options}
+							</select>
+							<br />
+							<select name="course4" value={this.state.course4} onChange={this.handleChange}>
+								{options}
+							</select>
+							<br />
+							<select name="altcourse1" value={this.state.altcourse1} onChange={this.handleChange}>
+								{options}
+							</select>
+							<br />
+							<select name="altcourse2" value={this.state.altcourse2} onChange={this.handleChange}>
+								{options}
+							</select>
+							<br />
+							{status === 'SUCCESS' ? <p>Thanks!</p> : <button>Submit</button>}
+							{status === 'ERROR' && <p>Ooops! There was an error.</p>}
+						</Grid>
 					</form>
 				</div>
-			</MuiThemeProvider>
+				<div className="ListedCourses">
+					<Grid item container direction="column" justify="center" alignItems="center">
+						<div>
+							<h1>Your selected courses you submitted:</h1>
+							<h2>First Choice Selections:</h2>
+							<h4>1. {this.state.course1}</h4>
+							<h4>2. {this.state.course2}</h4>
+							<h4>3. {this.state.course3}</h4>
+							<h4>4. {this.state.course4}</h4>
+						</div>
+						<div>
+							<h2>Second Choice Selections:</h2>
+							<h4>1. {this.state.altcourse1}</h4>
+							<h4>2. {this.state.altcourse2}</h4>
+						</div>
+					</Grid>
+				</div>
+			</Grid>
 		);
 	}
 	submitForm(ev) {
@@ -133,4 +107,5 @@ export class SelectionForm extends Component {
 		xhr.send(data);
 	}
 }
+
 export default SelectionForm;
