@@ -42,7 +42,7 @@ export const CourseProvider = (props) => {
 		},
 		{
 			id: 'MATH-1200.01',
-			name: 'College Algebra MATH-1200',
+			name: 'College Algebra MATH-1200.01',
 			description:
 				'The topics covered include properties of number systems, polynomials, linear and quadratic equations and inequalities, radical equations, absolute value equations, systems of equations and inequalities, graphing, and verbal problems. A grade of C or higher is required to advance in the AVMA accredited Veterinary Technology programs.',
 			times: 'M/W/F 11:30 AM - 12:20 PM',
@@ -51,7 +51,7 @@ export const CourseProvider = (props) => {
 		},
 		{
 			id: 'MATH-1200.02',
-			name: 'College Algebra MATH-1200',
+			name: 'College Algebra MATH-1200.02',
 			description:
 				'The topics covered include properties of number systems, polynomials, linear and quadratic equations and inequalities, radical equations, absolute value equations, systems of equations and inequalities, graphing, and verbal problems. A grade of C or higher is required to advance in the AVMA accredited Veterinary Technology programs.',
 			times: 'TH 6:25 PM - 8:55 PM',
@@ -69,7 +69,7 @@ export const CourseProvider = (props) => {
 		},
 		{
 			id: 'PSYC-1001.01',
-			name: 'Introduction to Psychology PSYC-1001',
+			name: 'Introduction to Psychology PSYC-1001.01',
 			description:
 				'An introduction to the basic concepts and fundamental principles of human behavior using the historical background of psychology as a foundation, and present theory and research as a tool to explore principles of learning, human development motivation, stress, personality, interpersonal skills and mental health.',
 			times: 'W 6:15 PM - 8:45 PM',
@@ -78,7 +78,7 @@ export const CourseProvider = (props) => {
 		},
 		{
 			id: 'PSYC-1001.02',
-			name: 'Introduction to Psychology PSYC-1001',
+			name: 'Introduction to Psychology PSYC-1001.01',
 			description:
 				'An introduction to the basic concepts and fundamental principles of human behavior using the historical background of psychology as a foundation, and present theory and research as a tool to explore principles of learning, human development motivation, stress, personality, interpersonal skills and mental health.',
 			times: 'M/W/F 8:00 AM - 8:50 AM',
