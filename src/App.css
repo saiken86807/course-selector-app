@@ -79,6 +79,21 @@ h4 {
 	width: fit-content;
 }
 
+.editor-field select {
+	border-radius: 4px;
+	border-style: solid;
+	border-width: medium;
+	width: 400px;
+	height: 25px;
+	padding: 20px;
+	margin: 20px;
+	border-color: #726e97;
+	color: black;
+}
+/* option {
+	color: black;
+} */
+
 @media screen and (min-width: 960px) {
 	.courses {
 		height: 350px;
