@@ -45,6 +45,7 @@ class Confirmation extends Component {
 				<Button color="secondary" variant="contained" onClick={this.back}>
 					Back
 				</Button>
+				<br />
 				<Button color="primary" variant="contained" onClick={this.saveAndContinue}>
 					Confirm
 				</Button>
