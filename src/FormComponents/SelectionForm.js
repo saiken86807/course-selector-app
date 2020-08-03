@@ -21,8 +21,10 @@ export class SelectionForm extends Component {
 			' Introduction to Psychology: PSYC-1001.01',
 			' Introduction to Psychology: PSYC-1001.02'
 		];
-		const options = courses.map((item) => <option value={item}>{item}</option>);
-		// const filteredOptions = options.filter((option) => !selectedOption.includes(option));
+		// const options = courses.map((item) => <option value={item}>{item}</option>);
+		const filteredOptions = courses
+			.filter((item) => !item.selected)
+			.map((item) => <option value={item}>{item}</option>);
 		return (
 			<Form>
 				<h1>Select your courses and Submit</h1>
@@ -38,7 +40,7 @@ export class SelectionForm extends Component {
 							defaultValue={values.course1}
 							onChange={this.props.handleChange('course1')}
 						>
-							{options}
+							{filteredOptions}
 						</Input>
 					</Col>
 				</FormGroup>
@@ -55,7 +57,7 @@ export class SelectionForm extends Component {
 							defaultValue={values.course2}
 							onChange={this.props.handleChange('course2')}
 						>
-							{options}
+							{filteredOptions}
 						</Input>
 					</Col>
 				</FormGroup>
@@ -72,7 +74,7 @@ export class SelectionForm extends Component {
 							defaultValue={values.course3}
 							onChange={this.props.handleChange('course3')}
 						>
-							{options}
+							{filteredOptions}
 						</Input>
 					</Col>
 				</FormGroup>
@@ -89,7 +91,7 @@ export class SelectionForm extends Component {
 							defaultValue={values.course4}
 							onChange={this.props.handleChange('course4')}
 						>
-							{options}
+							{filteredOptions}
 						</Input>
 					</Col>
 				</FormGroup>
@@ -107,7 +109,7 @@ export class SelectionForm extends Component {
 							defaultValue={values.altcourse1}
 							onChange={this.props.handleChange('altcourse1')}
 						>
-							{options}
+							{filteredOptions}
 						</Input>
 					</Col>
 				</FormGroup>
@@ -124,7 +126,7 @@ export class SelectionForm extends Component {
 							defaultValue={values.altcourse2}
 							onChange={this.props.handleChange('altcourse2')}
 						>
-							{options}
+							{filteredOptions}
 						</Input>
 					</Col>
 				</FormGroup>
