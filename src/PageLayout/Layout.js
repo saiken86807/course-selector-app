@@ -4,7 +4,7 @@ import { AppBar, Tabs, Tab, Typography, Box, Toolbar } from '@material-ui/core';
 import CourseSelectForm from './CourseSelectForm';
 import CourseTabIndex from './CourseTabIndex';
 import CreditEvaluation from './CreditEvaluation';
-import SelectionForm from '../FormComponents/SelectionForm';
+import FormSelectionMovement from '../FormComponents/FormMovement';
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -69,7 +69,7 @@ export default function SimpleTabs() {
 			</TabPanel>
 			<TabPanel className="TabsLayoutPanel" value={value} index={1}>
 				{/* <CourseSelectForm /> */}
-				<SelectionForm />
+				<FormSelectionMovement />
 			</TabPanel>
 			<TabPanel className="TabsLayoutPanel" value={value} index={2}>
 				<CreditEvaluation />
