@@ -1,20 +1,13 @@
 import React, { Component } from 'react';
-import { Grid } from '@material-ui/core';
+import { Form, FormGroup, Label, Input, Col } from 'reactstrap';
 
 export class SelectionForm extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			status: ''
-		};
-		this.submitForm = this.submitForm.bind(this);
-		this.handleChange = this.handleChange.bind(this);
-	}
-	handleChange(event) {
-		this.setState({ [event.target.name]: event.target.value });
-	}
+	saveAndContinue = (e) => {
+		e.preventDefault();
+		this.props.nextStep();
+	};
 	render() {
-		const { status } = this.state;
+		const { values } = this.props;
 		const courses = [
 			' Animal Care Management: ANSC-1003',
 			' Animal Health Skills: ANSC-1010',
@@ -27,84 +20,108 @@ export class SelectionForm extends Component {
 			' Introduction to Psychology: PSYC-1001.02'
 		];
 		const options = courses.map((item) => <option value={item}>{item}</option>);
-		// const selected = [...selected.options].filter(item => item.selected).map(item=> <option value={!selected}>{!selected}</option>;
 		return (
-			<Grid container direction="row" justify="center" alignItems="center">
-				<div className="dropdown">
-					<form onSubmit={this.submitForm} action="https://formspree.io/mlepzrlb" method="POST">
-						<h1>Select your courses and Submit</h1>
-						<Grid item>
-							<select
-								placebolder="select a course"
-								name="course1"
-								value={this.state.course1}
-								onChange={this.handleChange}
-							>
-								{options}
-							</select>
-							<br />
-							<select name="course2" value={this.state.course2} onChange={this.handleChange}>
-								{options}
-							</select>
-							<br />
-							<select name="course3" value={this.state.course3} onChange={this.handleChange}>
-								{options}
-							</select>
-							<br />
-							<select name="course4" value={this.state.course4} onChange={this.handleChange}>
-								{options}
-							</select>
-							<br />
-							<select name="altcourse1" value={this.state.altcourse1} onChange={this.handleChange}>
-								{options}
-							</select>
-							<br />
-							<select name="altcourse2" value={this.state.altcourse2} onChange={this.handleChange}>
-								{options}
-							</select>
-							<br />
-							{status === 'SUCCESS' ? <p>Thanks!</p> : <button>Submit</button>}
-							{status === 'ERROR' && <p>Ooops! There was an error.</p>}
-						</Grid>
-					</form>
-				</div>
-				<div className="ListedCourses">
-					<Grid item container direction="column" justify="center" alignItems="center">
-						<div>
-							<h1>Your selected courses you submitted:</h1>
-							<h2>First Choice Selections:</h2>
-							<h4>1. {this.state.course1}</h4>
-							<h4>2. {this.state.course2}</h4>
-							<h4>3. {this.state.course3}</h4>
-							<h4>4. {this.state.course4}</h4>
-						</div>
-						<div>
-							<h2>Second Choice Selections:</h2>
-							<h4>1. {this.state.altcourse1}</h4>
-							<h4>2. {this.state.altcourse2}</h4>
-						</div>
-					</Grid>
-				</div>
-			</Grid>
+			<Form>
+				<h1>Select your courses and Submit</h1>
+				<FormGroup row>
+					<Label for="course1" sm={2}>
+						Select a course
+					</Label>
+					<Col sm={10}>
+						<Input
+							type="select"
+							name="course1"
+							defaultValue={values.course1}
+							onChange={this.props.handleChange('course1')}
+						>
+							{options}
+						</Input>
+					</Col>
+				</FormGroup>
+				<br />
+				<FormGroup row>
+					<Label for="course2" sm={2}>
+						Select a course
+					</Label>
+					<Col sm={10}>
+						<Input
+							type="select"
+							name="course2"
+							defaultValue={values.course2}
+							onChange={this.props.handleChange('course2')}
+						>
+							{options}
+						</Input>
+					</Col>
+				</FormGroup>
+				<br />
+				<FormGroup row>
+					<Label for="course3" sm={2}>
+						Select a course
+					</Label>
+					<Col sm={10}>
+						<Input
+							type="select"
+							name="course3"
+							defaultValue={values.course3}
+							onChange={this.props.handleChange('course3')}
+						>
+							{options}
+						</Input>
+					</Col>
+				</FormGroup>
+				<br />
+				<FormGroup row>
+					<Label for="course4" sm={2}>
+						Select a course
+					</Label>
+					<Col sm={10}>
+						<Input
+							type="select"
+							name="course4"
+							defaultValue={values.course4}
+							onChange={this.props.handleChange('course4')}
+						>
+							{options}
+						</Input>
+					</Col>
+				</FormGroup>
+				<br />
+				<FormGroup row>
+					<Label for="altcourse1" sm={2}>
+						Select a course
+					</Label>
+					<Col sm={10}>
+						<Input
+							type="select"
+							name="altcourse1"
+							defaultValue={values.altcourse1}
+							onChange={this.props.handleChange('altcourse1')}
+						>
+							{options}
+						</Input>
+					</Col>
+				</FormGroup>
+				<br />
+				<FormGroup row>
+					<Label for="altcourse2" sm={2}>
+						Select a course
+					</Label>
+					<Col sm={10}>
+						<Input
+							type="select"
+							name="altcourse2"
+							defaultValue={values.altcourse2}
+							onChange={this.props.handleChange('altcourse2')}
+						>
+							{options}
+						</Input>
+					</Col>
+				</FormGroup>
+				<br />
+				<button onClick={this.saveAndContinue}>Save And Continue </button>
+			</Form>
 		);
-	}
-	submitForm(ev) {
-		ev.preventDefault();
-		const form = ev.target;
-		const data = new FormData(form);
-		const xhr = new XMLHttpRequest();
-		xhr.open(form.method, form.action);
-		xhr.setRequestHeader('Accept', 'application/json');
-		xhr.onreadystatechange = () => {
-			if (xhr.readyState !== XMLHttpRequest.DONE) return;
-			if (xhr.status === 200) {
-				form.reset();
-				this.setState({ status: 'SUCCESS' });
-			} else {
-				this.setState({ status: 'ERROR' });
-			}
-		};
-		xhr.send(data);
 	}
 }
 
