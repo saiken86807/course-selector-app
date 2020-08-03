@@ -17,7 +17,7 @@ export class SelectionForm extends Component {
 			' Small Animal Behavior: ANSC-2100',
 			' College Algebra: MATH-1200.01',
 			' College Algebra: MATH-1200.02',
-			' Chemistry: CHEM-1001',
+			' Chemistry II CHEM-1002',
 			' Introduction to Psychology: PSYC-1001.01',
 			' Introduction to Psychology: PSYC-1001.02'
 		];
@@ -92,8 +92,8 @@ export class SelectionForm extends Component {
 				<br />
 				<FormGroup row>
 					<Label for="altcourse1" sm={2}>
-						<h3>In the event your preferred course is full, select 2 alternate courses: </h3>
-						Select an Alternate course
+						<h2>In the event your preferred course is full, select 2 alternate courses: </h2>
+						Select an alternate course
 					</Label>
 					<Col sm={10}>
 						<Input
@@ -109,7 +109,7 @@ export class SelectionForm extends Component {
 				<br />
 				<FormGroup row>
 					<Label for="altcourse2" sm={2}>
-						Select an Alternate course
+						Select an alternate course
 					</Label>
 					<Col sm={10}>
 						<Input
