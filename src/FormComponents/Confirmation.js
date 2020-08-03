@@ -47,7 +47,7 @@ class Confirmation extends Component {
 				</Button>
 				<br />
 				<Button color="primary" variant="contained" onClick={this.saveAndContinue}>
-					Confirm
+					Confirm & Submit
 				</Button>
 			</div>
 		);

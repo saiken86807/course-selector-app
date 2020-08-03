@@ -21,7 +21,6 @@ export class SelectionForm extends Component {
 			' Introduction to Psychology: PSYC-1001.01',
 			' Introduction to Psychology: PSYC-1001.02'
 		];
-		// const options = courses.map((item) => <option value={item}>{item}</option>);
 		const filteredOptions = courses
 			.filter((item) => !item.selected)
 			.map((item) => <option value={item}>{item}</option>);

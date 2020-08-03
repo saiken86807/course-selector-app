@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { AppBar, Tabs, Tab, Typography, Box, Toolbar } from '@material-ui/core';
-import CourseSelectForm from './CourseSelectForm';
 import CourseTabIndex from './CourseTabIndex';
 import CreditEvaluation from './CreditEvaluation';
 import FormSelectionMovement from '../FormComponents/FormMovement';
@@ -68,7 +67,6 @@ export default function SimpleTabs() {
 				<CourseTabIndex />
 			</TabPanel>
 			<TabPanel className="TabsLayoutPanel" value={value} index={1}>
-				{/* <CourseSelectForm /> */}
 				<FormSelectionMovement />
 			</TabPanel>
 			<TabPanel className="TabsLayoutPanel" value={value} index={2}>
