@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Label, Input, Col } from 'reactstrap';
+import { Button } from '@material-ui/core/';
 
 export class SelectionForm extends Component {
 	saveAndContinue = (e) => {
@@ -9,6 +10,7 @@ export class SelectionForm extends Component {
 	render() {
 		const { values } = this.props;
 		const courses = [
+			'',
 			' Animal Care Management: ANSC-1003',
 			' Animal Health Skills: ANSC-1010',
 			' Introduction to Animal Science: ANSC-1400',
@@ -20,12 +22,13 @@ export class SelectionForm extends Component {
 			' Introduction to Psychology: PSYC-1001.02'
 		];
 		const options = courses.map((item) => <option value={item}>{item}</option>);
+		// const filteredOptions = options.filter((option) => !selectedOption.includes(option));
 		return (
 			<Form>
 				<h1>Select your courses and Submit</h1>
 				<FormGroup row>
 					<Label for="course1" sm={2}>
-						Select a course
+						Select first course
 					</Label>
 					<Col sm={10}>
 						<Input
@@ -41,7 +44,7 @@ export class SelectionForm extends Component {
 				<br />
 				<FormGroup row>
 					<Label for="course2" sm={2}>
-						Select a course
+						Select second course
 					</Label>
 					<Col sm={10}>
 						<Input
@@ -57,7 +60,7 @@ export class SelectionForm extends Component {
 				<br />
 				<FormGroup row>
 					<Label for="course3" sm={2}>
-						Select a course
+						Select third course
 					</Label>
 					<Col sm={10}>
 						<Input
@@ -73,7 +76,7 @@ export class SelectionForm extends Component {
 				<br />
 				<FormGroup row>
 					<Label for="course4" sm={2}>
-						Select a course
+						Select fourth course
 					</Label>
 					<Col sm={10}>
 						<Input
@@ -89,7 +92,8 @@ export class SelectionForm extends Component {
 				<br />
 				<FormGroup row>
 					<Label for="altcourse1" sm={2}>
-						Select a course
+						<h3>In the event your preferred course is full, select 2 alternate courses: </h3>
+						Select an Alternate course
 					</Label>
 					<Col sm={10}>
 						<Input
@@ -105,7 +109,7 @@ export class SelectionForm extends Component {
 				<br />
 				<FormGroup row>
 					<Label for="altcourse2" sm={2}>
-						Select a course
+						Select an Alternate course
 					</Label>
 					<Col sm={10}>
 						<Input
@@ -119,7 +123,9 @@ export class SelectionForm extends Component {
 					</Col>
 				</FormGroup>
 				<br />
-				<button onClick={this.saveAndContinue}>Save And Continue </button>
+				<Button color="primary" variant="contained" onClick={this.saveAndContinue}>
+					Save And Continue
+				</Button>
 			</Form>
 		);
 	}
