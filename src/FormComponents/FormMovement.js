@@ -49,7 +49,10 @@ class FormSelectionMovement extends Component {
 			default:
 				return (
 					<h1>
-						Oops! Something went wrong <span>❗🤔</span>
+						Oops! Something went wrong{' '}
+						<span role="img" aria-label="exclamation mark and ponder emoji">
+							❗🤔
+						</span>
 					</h1>
 				);
 		}
