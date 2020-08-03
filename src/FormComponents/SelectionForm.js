@@ -33,6 +33,7 @@ export class SelectionForm extends Component {
 					<Col sm={10}>
 						<Input
 							type="select"
+							bsSize="lg"
 							name="course1"
 							defaultValue={values.course1}
 							onChange={this.props.handleChange('course1')}
@@ -49,6 +50,7 @@ export class SelectionForm extends Component {
 					<Col sm={10}>
 						<Input
 							type="select"
+							bsSize="lg"
 							name="course2"
 							defaultValue={values.course2}
 							onChange={this.props.handleChange('course2')}
@@ -65,6 +67,7 @@ export class SelectionForm extends Component {
 					<Col sm={10}>
 						<Input
 							type="select"
+							bsSize="lg"
 							name="course3"
 							defaultValue={values.course3}
 							onChange={this.props.handleChange('course3')}
@@ -81,6 +84,7 @@ export class SelectionForm extends Component {
 					<Col sm={10}>
 						<Input
 							type="select"
+							bsSize="lg"
 							name="course4"
 							defaultValue={values.course4}
 							onChange={this.props.handleChange('course4')}
@@ -98,6 +102,7 @@ export class SelectionForm extends Component {
 					<Col sm={10}>
 						<Input
 							type="select"
+							bsSize="lg"
 							name="altcourse1"
 							defaultValue={values.altcourse1}
 							onChange={this.props.handleChange('altcourse1')}
@@ -114,6 +119,7 @@ export class SelectionForm extends Component {
 					<Col sm={10}>
 						<Input
 							type="select"
+							bsSize="lg"
 							name="altcourse2"
 							defaultValue={values.altcourse2}
 							onChange={this.props.handleChange('altcourse2')}
