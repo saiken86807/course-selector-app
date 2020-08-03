@@ -14,7 +14,7 @@
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
-	box-shadow: 10px 10px 5px 0px #726e97;
+	box-shadow: 0px 5px 20px rgb(71, 71, 71);
 	background: white;
 }
 
@@ -79,7 +79,7 @@ h4 {
 	width: fit-content;
 }
 
-.editor-field select {
+select {
 	border-radius: 4px;
 	border-style: solid;
 	border-width: medium;
@@ -94,7 +94,7 @@ h4 {
 	color: black;
 } */
 
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 980px) {
 	.courses {
 		height: 350px;
 		width: 600px;
@@ -105,7 +105,7 @@ h4 {
 		flex-direction: column;
 		justify-content: space-around;
 		align-items: center;
-		box-shadow: 10px 10px 5px 0px #726e97;
+		box-shadow: 0px 5px 20px #726e97;
 		background: white;
 	}
 }
