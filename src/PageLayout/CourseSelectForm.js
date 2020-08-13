@@ -38,6 +38,7 @@ export class CourseSelectionForm extends Component {
 		this.setState({
 			courses: values
 		});
+		console.log(values);
 	};
 	onAltcoursesChange = (event, values) => {
 		this.setState({

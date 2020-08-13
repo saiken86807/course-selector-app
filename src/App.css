@@ -33,14 +33,32 @@
 	margin-bottom: 10px;
 }
 
-.dropdown {
-	width: 400px;
+Input {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 12px 10px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border-color: #726e97;
+}
+
+.CourseForm {
+	border-radius: 5px;
+	background-color: #f2f2f2;
 	padding: 20px;
-	margin: 20px;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: flex-end;
+}
+
+.formbutton.formbutton {
+	margin-top: 20px;
+}
+.dropdown {
+	margin-top: 10px;
+}
+.successMessage {
+	margin-top: 20px;
+	padding: 20px;
+	margin-bottom: 10px;
+	background-color: #a7c957;
 }
 
 .ListedCourses {
@@ -60,11 +78,6 @@
 	background-color: #f8f7ff;
 }
 
-.altcoursesDropdown,
-.CoursesDropdown {
-	background-color: white;
-}
-
 h3,
 h4 {
 	margin-top: 0;
@@ -77,18 +90,6 @@ h4 {
 .CreditHistoryTable {
 	min-width: 400px;
 	width: fit-content;
-}
-
-select {
-	border-radius: 4px;
-	border-style: solid;
-	border-width: 3px;
-	width: 400px;
-	height: 25px;
-	margin: 20px;
-	border-color: #726e97;
-	color: black;
-	font-size: 16px;
 }
 
 @media screen and (min-width: 980px) {
