@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { AppBar, Tabs, Tab, Typography, Box, Toolbar } from '@material-ui/core';
 import CourseTabIndex from './CourseTabIndex';
 import CreditEvaluation from './CreditEvaluation';
-import FormSelectionMovement from '../FormComponents/FormMovement';
+import CourseSelectionForm from './CourseSelectionForm';
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -67,7 +67,7 @@ export default function SimpleTabs() {
 				<CourseTabIndex />
 			</TabPanel>
 			<TabPanel className="TabsLayoutPanel" value={value} index={1}>
-				<FormSelectionMovement />
+				<CourseSelectionForm />
 			</TabPanel>
 			<TabPanel className="TabsLayoutPanel" value={value} index={2}>
 				<CreditEvaluation />
